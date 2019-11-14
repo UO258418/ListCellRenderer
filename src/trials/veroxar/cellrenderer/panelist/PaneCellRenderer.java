@@ -5,21 +5,16 @@ import java.awt.Component;
 import javax.swing.JTable;
 import javax.swing.table.TableCellRenderer;
 
-public class PaneCellRenderer extends DemoPane implements TableCellRenderer {
+public class PaneCellRenderer implements TableCellRenderer {
 	
-	private static final long serialVersionUID = -3400546726227819346L;
-	
-	public PaneCellRenderer() {
-		super.setOpaque(true);
-	}
-
 	@Override
 	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
 			boolean hasFocus, int row, int column) {
 		
+		// get current DemoPane
 		DemoPane renderer = (DemoPane) value; 
 		
-		return this;
+		return renderer;
 		
 	}
 	

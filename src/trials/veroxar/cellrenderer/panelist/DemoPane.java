@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import java.awt.Dimension;
 
 public class DemoPane extends JPanel {
 
@@ -19,6 +20,9 @@ public class DemoPane extends JPanel {
 	 * Create the panel.
 	 */
 	public DemoPane() {
+		setMinimumSize(new Dimension(10, 100));
+		setMaximumSize(new Dimension(32767, 100));
+		setPreferredSize(new Dimension(400, 100));
 		setLayout(new GridLayout(0, 1, 0, 0));
 		add(getPnTop());
 		add(getPnBottom());

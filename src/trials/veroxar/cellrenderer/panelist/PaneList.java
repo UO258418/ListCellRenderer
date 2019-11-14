@@ -1,13 +1,14 @@
 package trials.veroxar.cellrenderer.panelist;
 
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import java.awt.BorderLayout;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class PaneList extends JPanel {
 	
@@ -37,7 +38,7 @@ public class PaneList extends JPanel {
 	private JTable getTablePaneList() {
 		if (tablePaneList == null) {
 			DefaultTableModel model = new DefaultTableModel() {
-		
+				
 				private static final long serialVersionUID = -9022939128413482446L;
 
 				@Override
@@ -45,8 +46,12 @@ public class PaneList extends JPanel {
 					return DemoPane.class;
 				}
 			};
-			tablePaneList.setDefaultRenderer(DemoPane.class, new PaneCellRenderer());
+			model.addColumn("Panel List");
 			tablePaneList = new JTable(model);
+			tablePaneList.setFillsViewportHeight(true);
+			tablePaneList.setDefaultRenderer(DemoPane.class, new PaneCellRenderer());
+			DemoPane dp = new DemoPane();
+			tablePaneList.setRowHeight((int) dp.getPreferredSize().getHeight());
 		}
 		return tablePaneList;
 	}
@@ -66,7 +71,6 @@ public class PaneList extends JPanel {
 					DefaultTableModel model = (DefaultTableModel) table.getModel();
 					Object[] row = {new DemoPane()};
 					model.addRow(row);
-					model.fireTableDataChanged();
 				}
 			});
 		}
