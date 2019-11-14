@@ -50,6 +50,7 @@ public class PaneList extends JPanel {
 			tablePaneList = new JTable(model);
 			tablePaneList.setFillsViewportHeight(true);
 			tablePaneList.setDefaultRenderer(DemoPane.class, new PaneCellRenderer());
+			tablePaneList.setDefaultEditor(DemoPane.class, new PaneCellEditor());
 			DemoPane dp = new DemoPane();
 			tablePaneList.setRowHeight((int) dp.getPreferredSize().getHeight());
 		}
