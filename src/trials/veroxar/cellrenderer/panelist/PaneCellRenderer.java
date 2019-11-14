@@ -1,20 +1,25 @@
 package trials.veroxar.cellrenderer.panelist;
 
-import java.awt.Color;
 import java.awt.Component;
 
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.ListCellRenderer;
+import javax.swing.JTable;
+import javax.swing.table.TableCellRenderer;
 
-public class PaneCellRenderer implements ListCellRenderer<JPanel> {
+public class PaneCellRenderer extends DemoPane implements TableCellRenderer {
+	
+	private static final long serialVersionUID = -3400546726227819346L;
+	
+	public PaneCellRenderer() {
+		super.setOpaque(true);
+	}
 
 	@Override
-	public Component getListCellRendererComponent(JList<? extends JPanel> list, JPanel pane, int index,
-			boolean isSelected, boolean cellHasFocus) {
+	public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
+			boolean hasFocus, int row, int column) {
 		
-		pane.setBackground(isSelected ? Color.MAGENTA : list.getBackground());
-		return pane;
+		DemoPane renderer = (DemoPane) value; 
+		
+		return this;
 		
 	}
 	
